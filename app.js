@@ -45,3 +45,28 @@ downMobile.addEventListener("click", function () {
 
     showListChildrenMobile.classList.toggle("show");
 });
+
+const studentNumber = document.querySelector(".evaluate__number.student");
+const teacherNumber = document.querySelector(".evaluate__number.teacher");
+const classesNumber = document.querySelector(".evaluate__number.classes");
+const ratingNumber = document.querySelector(".evaluate__number.rating");
+
+function numberEvaluator(el, to) {
+    var i = 0;
+    var time = 200;
+    var step = to / time;
+
+    var number = setInterval(() => {
+        i += step;
+        if (i > to) {
+            clearInterval(number);
+            el.innerText = to;
+        } else {
+            el.innerText = Math.round(i);
+        }
+    }, 1);
+}
+numberEvaluator(studentNumber, 1000);
+numberEvaluator(teacherNumber, 2500);
+numberEvaluator(classesNumber, 906);
+numberEvaluator(ratingNumber, 2000);
